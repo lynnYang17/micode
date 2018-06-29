@@ -13,13 +13,59 @@
 
 输出
 4
+
+
+构建短字符串
+序号：#11 难度：一般  时间限制：1000ms  内存限制：10M
+描述
+给定任意一个较短的子串，和另一个较长的字符串，判断短的字符串是否能够由长字符串中的字符构建出来，且长串中的每个字符只能用一次。
+
+输入
+一行数据包括一个较短的字符串和一个较长的字符串，用一个空格分隔，如：
+ab aab
+bb abc
+aa cccc
+
+输出
+如果短的字符串可以由长字符串中的字符构建出来，返回字符串 “true”，否则返回字符串 "false"，注意返回字符串类型而不是布尔型。
 """
 
 
 def solution(line):
+    a, b = line.strip().split(' ')
+    if len(a) == 1 and len(b) == 1:
+        if a == b:
+            return 'true'
+        else:
+            return 'false'
+    mapp = {}
+    for i in b:
+        mapp[i] = 0
+    for i in b:
+        mapp[i] += 1
+    for i in a:
+        if mapp.has_key(i):
+            if mapp[i] > 0:
+                mapp[i] -= 1
+            else:
+                return 'false'
+        else:
+            return 'false'
+    return 'true'
+
+
+s = "ab aab"
+a = "mi zhizhqpoem"
+b = "bb abc"
+print solution(s)
+print solution(a)
+print solution(b)
+
+
+'''def solution(line):
     s = line.strip().split(',')
     flag = -1
-    for i in range(len(s) - 1):#???
+    for i in range(len(s) - 1):  # len(s) - 1 因为下边有i + 1
         if int(s[i]) > int(s[i + 1]):
             flag = i
     if flag == -1:
@@ -35,7 +81,7 @@ s = "12,13,14,5,6,7,8,9,10"
 print solution(s)
 
 
-'''def solution(line):
+def solution(line):
     a = int(line)
     b = []
     b.append(1)
