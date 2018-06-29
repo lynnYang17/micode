@@ -43,4 +43,6 @@ def solution(line):
 
 
 s = "9999000000000 + 1999999"
+s1 = "0 + 0"
 print solution(s)
+print solution(s1)
