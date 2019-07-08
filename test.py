@@ -31,6 +31,12 @@ aa cccc
 """
 
 
+print type(0xff)
+print type(bytes(0xff))
+print type({2:1, 3:2, 4:4})
+
+
+'''
 def solution(line):
     a, b = line.strip().split(' ')
     if len(a) == 1 and len(b) == 1:
@@ -62,7 +68,7 @@ print solution(a)
 print solution(b)
 
 
-'''def solution(line):
+def solution(line):
     s = line.strip().split(',')
     flag = -1
     for i in range(len(s) - 1):  # len(s) - 1 因为下边有i + 1
